@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class HomeController extends GetxController {
   final count = 0.obs;
