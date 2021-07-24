@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
-
   final count = 0.obs;
   @override
   void onInit() {
