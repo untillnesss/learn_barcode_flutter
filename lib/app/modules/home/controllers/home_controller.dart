@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
+import 'package:learn_barcode/app/routes/app_pages.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class HomeController extends GetxController {
-  final count = 0.obs;
+  RxString text = RxString('tap to scan');
+
   @override
   void onInit() {
     super.onInit();
@@ -14,5 +17,15 @@ class HomeController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+
+  void doScan() async {
+    var result = await Get.toNamed(Routes.QRSCAN);
+
+    if (result != null && result is Barcode) {
+      this.text.value = result.code;
+      print(result.format);
+    } else {
+      this.text.value = 'fail';
+    }
+  }
 }

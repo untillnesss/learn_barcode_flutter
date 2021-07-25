@@ -19,20 +19,14 @@ class HomeView extends GetView<HomeController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              'HomeView is working',
-              style: TextStyle(fontSize: 20),
+            Obx(
+              () => Text(
+                controller.text.value,
+                style: TextStyle(fontSize: 20),
+              ),
             ),
             ElevatedButton(
-              onPressed: () async {
-                var result = await Get.toNamed(Routes.QRSCAN);
-
-                if (result != null && result is Barcode) {
-                  print(result.code);
-                } else {
-                  print('KOSONG');
-                }
-              },
+              onPressed: controller.doScan,
               child: Text('Scan QR'),
             ),
           ],
