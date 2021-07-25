@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_beep/flutter_beep.dart';
 import 'package:get/get.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -33,6 +34,7 @@ class QrscanController extends GetxController {
     this.qrController = qrController;
     qrController.scannedDataStream.listen((scanData) {
       qrController.pauseCamera();
+      FlutterBeep.beep();
       Get.back(result: scanData);
     });
   }
