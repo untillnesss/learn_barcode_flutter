@@ -12,7 +12,8 @@ dependencies:
   cupertino_icons: ^1.0.0
   qr_code_scanner: ^0.5.2
   flutter_beep: ^1.0.0
-
+  barcode_widget: ^2.0.1
+    
 dev_dependencies: 
   flutter_test: 
     sdk: flutter
